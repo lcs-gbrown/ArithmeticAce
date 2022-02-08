@@ -10,19 +10,41 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView {
-            HStack{
-                Text("X")
-                Spacer()
-                VStack{
-                    Text("5")
-                    Text("6")
+            VStack{
+                HStack{
+                    Text("X")
+                        .padding()
+                    Spacer()
+                    VStack{
+                        Text("Value1")
+                            .padding()
+                        Text("Value2")
+                            .padding()
+                    }
                 }
+                Divider()
+                    .padding()
+                HStack{
+                    Text("True/False")
+                    Spacer()
+                    Text("Sum Value 1 + 2")
+                    
+                }
+                Button(action: {
+
+                    print("Button was pressed")
+                }, label: {
+                    Text("Press me")
+                })
+                .buttonStyle(.bordered)
+
             }
+            }
+            
             .font(.largeTitle)
             
         }
     }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
