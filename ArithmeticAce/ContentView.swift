@@ -16,6 +16,10 @@ struct ContentView: View {
     //Holds the user's input whatever it may be
     @State var inputGiven = ""
     
+    //Properties to check if input is valid
+    @State var answerProvided = false
+    @State var answerIsCorrect = false
+    
     //MARK: Computed properties
     var correctAnswer: Int {
         return multiplicand * multiplier
@@ -23,14 +27,16 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
-            VStack{
+            VStack(spacing: 0){
                 HStack{
                     Text("✕")
                         .padding()
                     Spacer()
                     VStack(alignment: .trailing){
+                        
                         Text("\(multiplicand)")
                             .padding()
+                        
                         Text("\(multiplier)")
                             .padding()
                     }
@@ -41,8 +47,8 @@ struct ContentView: View {
                 
                 HStack{
                     Image(systemName: "checkmark.circle")
+                        .opacity(answerIsCorrect ? 1.0 : 0.0)
                         .foregroundColor(.green)
-                    
                         .padding()
                     
                     Spacer()
@@ -60,17 +66,21 @@ struct ContentView: View {
                         // Guard Statment
                         guard let answerGiven = Int(inputGiven) else {
                             //Input is invalid
+                            answerProvided = true
+                            answerIsCorrect = false
                             return
                         }
                         
                     //check the answer
+                        answerProvided = true
+                        
                     if answerGiven == correctAnswer {
                     
-                        
+                        answerIsCorrect = true
                         
                     }else{
                        
-                        
+                        answerIsCorrect = false
                         
                     }
                          
