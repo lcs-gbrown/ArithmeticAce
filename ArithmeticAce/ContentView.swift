@@ -44,20 +44,23 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    TextField("Enter a product",
-                              text: $inputGiven,
-                              prompt: Text("Answer"))
-                    
+                    TextField("",
+                              text: $inputGiven)
+                        .multilineTextAlignment(.trailing)
                         .padding()
                 }
                 
                 Button(action: {
                     
-                    print("Button was pressed")
+                    //check the answer
+                    print("Answer checked!")
+                    
                 }, label: {
+                    //Label
                     Text("Check Answer")
                 })
                     .buttonStyle(.bordered)
+                    .padding()
                 
             }
             .font(.system(size: 40))
