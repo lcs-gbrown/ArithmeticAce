@@ -17,6 +17,9 @@ struct ContentView: View {
     @State var inputGiven = ""
     
     //MARK: Computed properties
+    var correctAnswer: Int {
+        return multiplicand * multiplier
+    }
     
     var body: some View {
         ScrollView {
@@ -50,11 +53,27 @@ struct ContentView: View {
                         .padding()
                 }
                 
-                Button(action: {
+                Button(
                     
+                    action:{
+                    
+                        // Guard Statment
+                        guard let answerGiven = Int(inputGiven) else {
+                            //Input is invalid
+                            return
+                        }
+                        
                     //check the answer
-                    print("Answer checked!")
+                    if answerGiven == correctAnswer {
                     
+                        
+                        
+                    }else{
+                       
+                        
+                        
+                    }
+                         
                 }, label: {
                     //Label
                     Text("Check Answer")
