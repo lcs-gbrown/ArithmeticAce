@@ -12,7 +12,7 @@ struct ContentView: View {
         ScrollView {
             VStack{
                 HStack{
-                    Text("X")
+                    Text("✕")
                         .padding()
                     Spacer()
                     VStack{
@@ -22,29 +22,33 @@ struct ContentView: View {
                             .padding()
                     }
                 }
+                
                 Divider()
                     .padding()
+                
                 HStack{
-                    Text("True/False")
-                    Spacer()
-                    Text("Sum Value 1 + 2")
+                    Image(systemName: "checkmark.circle")
                     
+                        .padding()
+                
+                    Spacer()
+                    Text("30")
+                    
+                        .padding()
                 }
                 Button(action: {
-
+                    
                     print("Button was pressed")
                 }, label: {
-                    Text("Press me")
+                    Text("Check Answer")
                 })
-                .buttonStyle(.bordered)
-
+                    .buttonStyle(.bordered)
+                
             }
-            }
-            
-            .font(.largeTitle)
-            
+            .font(.system(size: 50))
         }
     }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
