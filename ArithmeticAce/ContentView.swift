@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Stored properties
-    let multiplicand = Int.random(in: 1...12)
-    let multiplier = Int.random(in: 1...12)
+    @State var multiplicand = Int.random(in: 1...12)
+    @State var multiplier = Int.random(in: 1...12)
     
     //Holds the user's input whatever it may be
     @State var inputGiven = ""
@@ -46,10 +46,20 @@ struct ContentView: View {
                     .padding()
                 
                 HStack{
-                    Image(systemName: "checkmark.circle")
-                        .opacity(answerIsCorrect ? 1.0 : 0.0)
-                        .foregroundColor(.green)
-                        .padding()
+                    
+                    if answerIsCorrect {
+                       
+                        Image(systemName: "checkmark.circle")
+                            .foregroundColor(.green)
+                            .padding()
+
+                    } else {
+                        
+                        Image(systemName: "multiply.circle")
+                            .foregroundColor(.red)
+                            .padding()
+
+                    }
                     
                     Spacer()
                     
@@ -91,6 +101,18 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                     .padding()
                 
+                Button(
+                    
+                    action:{
+                        multiplicand = Int.random(in: 1...12)
+                        multiplier = Int.random(in: 1...12)
+                         
+                }, label: {
+                    //Label
+                    Text("Reset")
+                })
+                    .buttonStyle(.bordered)
+                    .padding()
             }
             .font(.system(size: 40))
         }
