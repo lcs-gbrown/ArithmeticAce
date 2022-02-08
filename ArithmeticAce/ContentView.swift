@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: Stored properties
+    let multiplicand = Int.random(in: 1...12)
+    let multiplier = Int.random(in: 1...12)
+    
+    //MARK: Computed properties
+    
     var body: some View {
         ScrollView {
             VStack{
@@ -15,10 +22,10 @@ struct ContentView: View {
                     Text("✕")
                         .padding()
                     Spacer()
-                    VStack{
-                        Text("Value1")
+                    VStack(alignment: .trailing){
+                        Text("\(multiplicand)")
                             .padding()
-                        Text("Value2")
+                        Text("\(multiplier)")
                             .padding()
                     }
                 }
@@ -28,14 +35,17 @@ struct ContentView: View {
                 
                 HStack{
                     Image(systemName: "checkmark.circle")
+                        .foregroundColor(.green)
                     
                         .padding()
                 
                     Spacer()
-                    Text("30")
+                    
+                    Text("Answer")
                     
                         .padding()
                 }
+                
                 Button(action: {
                     
                     print("Button was pressed")
@@ -45,7 +55,7 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                 
             }
-            .font(.system(size: 50))
+            .font(.system(size: 40))
         }
     }
 }
