@@ -13,6 +13,9 @@ struct ContentView: View {
     let multiplicand = Int.random(in: 1...12)
     let multiplier = Int.random(in: 1...12)
     
+    //Holds the user's input whatever it may be
+    @State var inputGiven = ""
+    
     //MARK: Computed properties
     
     var body: some View {
@@ -38,10 +41,12 @@ struct ContentView: View {
                         .foregroundColor(.green)
                     
                         .padding()
-                
+                    
                     Spacer()
                     
-                    Text("Answer")
+                    TextField("Enter a product",
+                              text: $inputGiven,
+                              prompt: Text("Answer"))
                     
                         .padding()
                 }
